@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:equatable/equatable.dart';
 import 'package:weather_x/core/failure/failures.dart';
 import 'package:weather_x/core/usecases/usecase.dart';
 import 'package:weather_x/features/weather/domain/entities/weather.dart';
@@ -17,8 +18,11 @@ class GetWeatherByRegionCode
   }
 }
 
-class GetWeatherByRegionCodeParam {
+class GetWeatherByRegionCodeParam extends Equatable {
   final String regionCode;
 
-  GetWeatherByRegionCodeParam({required this.regionCode});
+  const GetWeatherByRegionCodeParam({required this.regionCode});
+
+  @override
+  List<Object?> get props => [regionCode];
 }

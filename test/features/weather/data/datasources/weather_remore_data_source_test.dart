@@ -8,7 +8,7 @@ import 'package:weather_x/core/exception/exceptions.dart';
 import 'package:weather_x/features/weather/data/datasources/weather_remote_data_source.dart';
 import 'package:weather_x/features/weather/data/models/weather_model.dart';
 
-import '../../../fixtures/fixture.dart';
+import '../../../../fixtures/fixture.dart';
 
 class MockDio extends Mock implements Dio {}
 
@@ -18,7 +18,7 @@ void main() {
 
   setUp(() {
     dio = MockDio();
-    dataSource = WeatherRemoteDataSouceImpl(dio);
+    dataSource = WeatherRemoteDataSourceImpl(dio);
   });
 
   group('weather remote data source', () {

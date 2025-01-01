@@ -7,7 +7,7 @@ import 'package:weather_x/features/weather/data/models/lokasi_model.dart';
 import 'package:weather_x/features/weather/data/models/weather_model.dart';
 import 'package:weather_x/features/weather/domain/entities/weather.dart';
 
-import '../../../fixtures/fixture.dart';
+import '../../../../fixtures/fixture.dart';
 
 void main() {
   final WeatherModel tWeatherModel = WeatherModel(

@@ -8,10 +8,10 @@ abstract class WeatherRemoteDataSource {
   Future<WeatherModel> getWeatherByRegionCode(String code);
 }
 
-class WeatherRemoteDataSouceImpl implements WeatherRemoteDataSource {
+class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
   final Dio dio;
 
-  WeatherRemoteDataSouceImpl(this.dio);
+  WeatherRemoteDataSourceImpl(this.dio);
 
   @override
   Future<WeatherModel> getWeatherByRegionCode(String code) async {
