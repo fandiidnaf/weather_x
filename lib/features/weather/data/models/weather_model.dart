@@ -3,7 +3,7 @@ import 'package:weather_x/features/weather/data/models/lokasi_model.dart';
 import 'package:weather_x/features/weather/domain/entities/weather.dart';
 
 class WeatherModel extends Weather {
-  WeatherModel({
+  const WeatherModel({
     required LokasiModel lokasi,
     required List<CuacaGroupModel> cuacaGroups,
   }) : super(lokasi: lokasi, cuacaGroups: cuacaGroups);

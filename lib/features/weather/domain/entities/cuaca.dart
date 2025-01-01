@@ -1,4 +1,6 @@
-class Cuaca {
+import 'package:equatable/equatable.dart';
+
+class Cuaca extends Equatable {
   final DateTime datetime;
   final double temperature;
   final int cloudCoverage;
@@ -17,7 +19,7 @@ class Cuaca {
   final DateTime utcDatetime;
   final DateTime localDatetime;
 
-  Cuaca({
+  const Cuaca({
     required this.datetime,
     required this.temperature,
     required this.cloudCoverage,
@@ -36,4 +38,25 @@ class Cuaca {
     required this.utcDatetime,
     required this.localDatetime,
   });
+
+  @override
+  List<Object?> get props => [
+        datetime,
+        temperature,
+        cloudCoverage,
+        precipitation,
+        weatherCode,
+        weatherDescription,
+        weatherDescriptionEn,
+        windDirection,
+        windDirectionDegree,
+        windToDirection,
+        windSpeed,
+        humidity,
+        visibility,
+        visibilityText,
+        imageUrl,
+        utcDatetime,
+        localDatetime,
+      ];
 }

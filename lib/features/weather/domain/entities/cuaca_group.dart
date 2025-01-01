@@ -1,9 +1,16 @@
+import 'package:equatable/equatable.dart';
+
 import 'cuaca.dart';
 
-class CuacaGroup {
+class CuacaGroup extends Equatable {
   final List<Cuaca> cuacaList;
 
-  CuacaGroup({
+  const CuacaGroup({
     required this.cuacaList,
   });
+
+  @override
+  List<Object?> get props => [
+        cuacaList,
+      ];
 }

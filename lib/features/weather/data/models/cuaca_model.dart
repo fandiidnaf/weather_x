@@ -1,7 +1,7 @@
 import 'package:weather_x/features/weather/domain/entities/cuaca.dart';
 
 class CuacaModel extends Cuaca {
-  CuacaModel({
+  const CuacaModel({
     required super.datetime,
     required super.temperature,
     required super.cloudCoverage,

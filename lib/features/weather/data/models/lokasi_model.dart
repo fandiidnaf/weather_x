@@ -1,7 +1,7 @@
 import 'package:weather_x/features/weather/domain/entities/lokasi.dart';
 
 class LokasiModel extends Lokasi {
-  LokasiModel({
+  const LokasiModel({
     required super.adm1,
     required super.adm2,
     required super.adm3,
