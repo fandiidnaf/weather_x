@@ -20,18 +20,9 @@ class WeatherRemoteDataSourceImpl implements WeatherRemoteDataSource {
         getAdmFromCode(code): code,
       }));
 
-      if (response.statusCode == 200) {
-        return WeatherModel.fromJson(response.data);
-      } else {
-        throw ServerException(
-          message: response.statusMessage ?? '',
-          code: response.statusCode ?? 0,
-        );
-      }
-    } on DioException catch (_) {
-      rethrow;
+      return WeatherModel.fromJson(response.data);
     } catch (e) {
-      rethrow;
+      throw handleDioError(e);
     }
   }
 

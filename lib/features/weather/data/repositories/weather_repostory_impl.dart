@@ -1,6 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:dio/dio.dart';
-import 'package:weather_x/core/exception/exceptions.dart';
 import 'package:weather_x/core/failure/failures.dart';
 import 'package:weather_x/features/weather/data/datasources/weather_remote_data_source.dart';
 import 'package:weather_x/features/weather/domain/entities/weather.dart';
@@ -18,13 +16,17 @@ class WeatherRepostoryImpl implements WeatherRepository {
       String regionCode) async {
     try {
       return Right(await remoteDataSouce.getWeatherByRegionCode(regionCode));
-    } on ServerException catch (e) {
-      return Left(ServerFailure(message: e.message, code: e.code));
-    } on DioException catch (e) {
-      return Left(ServerFailure(message: e.message ?? '', code: 0));
     } catch (e) {
-      return Left(
-        ServerFailure(message: 'UNKNOWN WHAT OCCURS', code: -1),
+      return handleFailureFromException<Weather>(
+        e,
+        onServerException: (message, statusCode) =>
+            Left(ServerFailure(message: message, statusCode: statusCode)),
+        onClientException: (message, statusCode) =>
+            Left(ClientFailure(message: message, statusCode: statusCode)),
+        onNetworkException: (message, statusCode) =>
+            Left(NetworkFailure(message: message, statusCode: statusCode)),
+        onUnexpectedException: (message, statusCode) =>
+            Left(UnexpectedFailure(message: message, statusCode: statusCode)),
       );
     }
   }

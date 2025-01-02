@@ -128,13 +128,13 @@ void main() {
 
     test('should emit [Loading, Error] when getting data fails', () async {
       // arrange
-      when(() => usecase(any())).thenAnswer(
-          (_) async => Left(ServerFailure(message: 'SERVER DOWN', code: 404)));
+      when(() => usecase(any())).thenAnswer((_) async =>
+          const Left(ServerFailure(message: 'SERVER DOWN', statusCode: 404)));
 
       // assert later
       final expected = [
         WeatherLoading(),
-        const WeatherError(message: 'SERVER DOWN', code: 404),
+        const WeatherError(message: 'SERVER DOWN', statusCode: 404),
       ];
       expectLater(bloc.stream, emitsInOrder(expected));
 

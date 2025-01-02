@@ -20,7 +20,7 @@ void main() {
   });
 
   final Weather tWeather = Weather(
-    lokasi: Lokasi(
+    lokasi: const Lokasi(
         adm1: '35',
         adm2: '35.06',
         adm3: '35.06.14',
@@ -89,7 +89,7 @@ void main() {
         .thenAnswer((_) async => Right(tWeather));
 
     // act
-    final result = await usecase(GetWeatherByRegionCodeParam(
+    final result = await usecase(const GetWeatherByRegionCodeParam(
       regionCode: "35.06.14.2011",
     ));
 

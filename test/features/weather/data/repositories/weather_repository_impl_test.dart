@@ -111,7 +111,7 @@ void main() {
       // arrange
       when(() => mockWeatherRemoteDataSource.getWeatherByRegionCode(any()))
           .thenThrow(
-        const ServerException(message: 'Server Down', code: 404),
+        const ServerException('Server Down', 404),
       );
 
       // act
@@ -121,8 +121,8 @@ void main() {
       // assert
       expect(
           result,
-          Left<Failure, Weather>(
-              ServerFailure(code: 404, message: 'Server Down')));
+          const Left<Failure, Weather>(
+              ServerFailure(statusCode: 404, message: 'Server Down')));
       verify(() =>
           mockWeatherRemoteDataSource.getWeatherByRegionCode('35.06.14.2011'));
       verifyNoMoreInteractions(mockWeatherRemoteDataSource);

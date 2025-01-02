@@ -53,11 +53,15 @@ void main() {
         'should throw a ServerException when the response code is 404 or other',
         () async {
       // arrange
-      when(() => dio.get(any())).thenAnswer(
-        (_) async => Response(
+      when(() => dio.get(any())).thenThrow(
+        DioException.badResponse(
+          statusCode: 500,
           requestOptions: RequestOptions(),
-          statusCode: 404,
-          statusMessage: 'Server Down',
+          response: Response(
+            requestOptions: RequestOptions(),
+            statusCode: 500,
+            statusMessage: 'Server Down',
+          ),
         ),
       );
 

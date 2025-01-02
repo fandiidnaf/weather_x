@@ -11,7 +11,7 @@ import '../../../../fixtures/fixture.dart';
 
 void main() {
   final WeatherModel tWeatherModel = WeatherModel(
-    lokasi: LokasiModel(
+    lokasi: const LokasiModel(
         adm1: '35',
         adm2: '35.06',
         adm3: '35.06.14',

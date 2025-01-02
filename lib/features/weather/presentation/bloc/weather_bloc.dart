@@ -18,8 +18,8 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
           GetWeatherByRegionCodeParam(regionCode: event.regionCode));
 
       weatherEither.fold(
-        (failure) =>
-            emit(WeatherError(message: failure.message, code: failure.code)),
+        (failure) => emit(WeatherError(
+            message: failure.message, statusCode: failure.statusCode)),
         (weather) => emit(WeatherLoaded(weather: weather)),
       );
     });

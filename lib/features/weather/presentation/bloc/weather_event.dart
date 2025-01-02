@@ -13,5 +13,7 @@ class GetWeatherEvent extends WeatherEvent {
   const GetWeatherEvent({required this.regionCode});
 
   @override
-  List<Object> get props => [regionCode];
+  List<Object> get props => [
+        regionCode,
+      ];
 }
